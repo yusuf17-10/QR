@@ -19,7 +19,8 @@ export default  class  TransactionScreen extends React.Component{
       const {status}=await Permissions.askAsync(Permissions.CAMERA);
       this.setState({
         hasCameraPermissions:status==="granted",
-        buttonState:'clicked'
+        buttonState:'clicked',
+          scanned:false
       }
       );
 
@@ -51,7 +52,7 @@ else if(buttonState==="normal"){
     return(
       <View style={{justifyContent:'center',alignItems:'center'}}>
       <Text style={styles.displayText}> {
-        hasCameraPermissions===true?this.state.scannedData:"requestCameraPermissions"
+        hasCameraPermissions===true?this.state.scannedData:"request hasCameraPermissions"
       }</Text>
       <TouchableOpacity style={styles.button} 
       onPress={this.getCameraPermissions}>
